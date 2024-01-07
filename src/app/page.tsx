@@ -27,17 +27,13 @@ export default async function Home({
   }
   const queryParams = queryParamsHandler(searchParams);
 
-  let prod = "";
   const path = `/products?${queryParams.toString()}`;
   const [products, categories] = await Promise.all([
     callApi({ method: "get", path: path }),
     callApi({ method: "get", path: "categories" }),
   ]);
-
-  return (
-    <HomePage
-      products={products.data ? products.data : prod}
-      categories={categories.data}
-    />
-  );
+  if (!products.data || !categories.data) {
+    return <div>Bir hata oluştu. Lütfen tekrar deneyin.</div>;
+  }
+  return <HomePage products={products.data} categories={categories.data} />;
 }
