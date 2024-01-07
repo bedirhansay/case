@@ -45,7 +45,7 @@
   }
 
   .filterItem {
-    @apply flex flex-col gap-2 bg-gray-50 p-2 rounded shadow-md;
+    @apply flex flex-col md:gap-2 bg-gray-50 p-2 rounded shadow-md;
 
     .filterInput {
       @apply flex gap-2;

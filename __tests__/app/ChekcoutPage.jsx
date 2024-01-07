@@ -10,7 +10,5 @@ describe("CheckoutPage component", () => {
         <CheckoutPage />
       </ContextProvider>
     );
-
-    it("should")
   });
 });
