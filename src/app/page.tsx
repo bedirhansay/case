@@ -32,8 +32,8 @@ export default async function Home({
     callApi({ method: "get", path: path }),
     callApi({ method: "get", path: "categories" }),
   ]);
-  if (!products.data || !categories.data) {
-    return <div>Bir hata oluştu. Lütfen tekrar deneyin.</div>;
-  }
-  return <HomePage products={products.data} categories={categories.data} />;
+
+  return (
+    <HomePage products={products.data || ""} categories={categories.data} />
+  );
 }

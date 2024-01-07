@@ -72,7 +72,7 @@ export const Filter = () => {
     // setSelectedModels(updatedModels);
 
     //! Api multiple seçeneği desteklemediği için bu durumları satıra alıyorum.
-    setSelectedModels([item]);
+    setSelectedModels(updatedModels);
   };
 
   const toggleSelection = (list: string[], item: string) => {
@@ -174,13 +174,6 @@ export const Filter = () => {
               : filterCategories?.models
           }
         />
-        <Button
-          onClick={() => clearFilters()}
-          className={style.clearButton}
-          variant="outline"
-        >
-          Clear Filters
-        </Button>
       </div>
     </div>
   );

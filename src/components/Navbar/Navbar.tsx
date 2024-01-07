@@ -149,10 +149,14 @@ export const Navbar = () => {
       </div>
 
       <form className={style.searchBoxMobile}>
-        <input name="search" type="text" placeholder="Search" />
-        {/* <label htmlFor="">
-          <CiSearch />
-        </label> */}
+        <Input
+          onBlur={(e) => setSearch(e.target.value)}
+          type="text"
+          placeholder="Search"
+        />
+        <label>
+          <CiSearch size={20} />
+        </label>
       </form>
     </div>
   );

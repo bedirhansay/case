@@ -5,3 +5,7 @@
 .homeSub {
   @apply w-full;
 }
+
+.notFound {
+  @apply text-2xl flex gap-2 bg-white mx-auto items-center my-auto border p-4 rounded;
+}

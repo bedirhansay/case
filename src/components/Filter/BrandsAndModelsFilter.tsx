@@ -39,7 +39,7 @@ const BrandsAndModelsFilter: React.FC<BrandsAndModelsFilterProps> = ({
                 type="radio"
                 name={name}
                 checked={selectedItems.includes(item)}
-                onChange={() => onItemChange(item)}
+                onClick={() => onItemChange(item)}
               />
               <label>{item}</label>
             </div>

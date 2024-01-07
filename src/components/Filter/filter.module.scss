@@ -38,14 +38,14 @@
 }
 
 .filterItemWrapper {
-  @apply mb-4 md:mb-8 max-h-44 md:max-h-64 overflow-hidden;
+  @apply mb-4 md:mb-8   max-h-44 md:max-h-64 overflow-hidden;
 
   span {
-    @apply block text-base mb-2 pl-2;
+    @apply text-base mb-2 pl-2 rounded shadow-xl;
   }
 
   .filterItem {
-    @apply flex flex-col md:gap-2 bg-gray-50 p-2 rounded shadow-md;
+    @apply flex flex-col md:gap-2 bg-gray-50 p-2 rounded;
 
     .filterInput {
       @apply flex gap-2;

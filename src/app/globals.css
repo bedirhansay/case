@@ -30,6 +30,9 @@
   .absolute-center {
     @apply absolute left-1/2 top-[50%] -translate-x-1/2 -translate-y-1/2;
   }
+  .children {
+    @apply p-2 min-h-screen flex-grow;
+  }
 }
 
 .grid-container {

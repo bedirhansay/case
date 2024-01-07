@@ -7,6 +7,7 @@ import { Footer } from "@/components/Footer";
 import { Urbanist } from "next/font/google";
 import { ContextProvider } from "@/lib/context/ContextProvider";
 import { Toaster } from "react-hot-toast";
+import { CheckoutPop } from "@/components/ui/CheckoutPop";
 
 const urbanist = Urbanist({
   subsets: ["latin"],
@@ -28,10 +29,11 @@ export default function RootLayout({
       <body className={`${urbanist.className} bg-[#F3F4F6] widthContainer`}>
         <ContextProvider>
           <Navbar />
-          <div className="p-2 min-h-screen flex-grow">{children}</div>
+          <div className="children">{children}</div>
           <Footer />
 
           <Toaster position="bottom-center" />
+          <CheckoutPop />
         </ContextProvider>
       </body>
     </html>
