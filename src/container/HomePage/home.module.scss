@@ -1,0 +1,7 @@
+.homeWrapper {
+  @apply flex flex-col md:flex-row w-full gap-4 py-8;
+}
+
+.homeSub {
+  @apply w-full;
+}

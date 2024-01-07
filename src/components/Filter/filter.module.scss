@@ -1,0 +1,52 @@
+.filterWrapper {
+  @apply bg-transparent bg-white  h-fit;
+}
+
+.filterTitle {
+  @apply bg-white flex items-center px-2  rounded shadow-sm;
+
+  button {
+    @apply flex  justify-between items-center w-full;
+  }
+}
+
+.filterArea {
+  @apply w-72 px-2 hidden md:static  py-4 border-2 md:border-none rounded md:flex md:flex-col;
+
+  &[data-open="true"] {
+    position: absolute;
+    display: block;
+    z-index: 100;
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+  }
+}
+
+.filterItemWrapper {
+  @apply mb-8 max-h-56 overflow-y-scroll;
+
+  span {
+    @apply block text-base mb-2 pl-2;
+  }
+
+  .filterItem {
+    @apply flex flex-col gap-2 bg-gray-50 p-2 rounded shadow-md;
+
+    .filterInput {
+      @apply flex gap-2;
+    }
+  }
+}
+
+.brandsInput {
+  @apply flex gap-2 px-2 rounded bg-gray-100 items-center;
+
+  input {
+    @apply outline-none border-none bg-gray-100;
+  }
+}
+
+.checkbox {
+  @apply flex gap-2 items-center;
+}

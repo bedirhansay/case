@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@layer components {
+  .layout {
+    @apply overflow-x-hidden h-screen px-0 text-gray-950  mx-auto relative pt-28 sm:pt-36;
+  }
+
+  .widthContainer {
+    @apply max-w-7xl mx-auto;
+  }
+}
+
+@layer utilities {
+  .flex-between {
+    @apply flex justify-between items-center;
+  }
+
+  .flex-center {
+    @apply flex items-center justify-center gap-2;
+  }
+
+  .absolute-center {
+    @apply absolute left-1/2 top-[50%] -translate-x-1/2 -translate-y-1/2;
+  }
+}
+
+.grid-container {
+  display: grid !important;
+  gap: 20px;
+  justify-content: space-between;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
+}

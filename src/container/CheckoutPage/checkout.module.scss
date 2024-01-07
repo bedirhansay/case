@@ -1,0 +1,48 @@
+.checkoutWrapper {
+  @apply mx-auto  my-8;
+
+  h2 {
+    @apply text-2xl font-semibold mb-4;
+  }
+}
+
+.box {
+  @apply flex items-center border-b py-2;
+
+  .boxSub {
+    @apply w-1/4 relative;
+    img {
+      @apply rounded;
+    }
+  }
+}
+
+.textWrapper {
+  @apply w-1/2 ml-4;
+
+  h3 {
+    @apply text-lg font-semibold;
+  }
+  p {
+    @apply text-gray-600;
+  }
+}
+
+.text {
+  @apply w-1/4 ml-4;
+
+  h3 {
+    @apply text-lg font-semibold;
+  }
+  p {
+    @apply text-gray-600;
+  }
+}
+
+.amount {
+  @apply mt-4 flex flex-col justify-end;
+
+  p {
+    @apply text-xl text-right font-semibold;
+  }
+}
