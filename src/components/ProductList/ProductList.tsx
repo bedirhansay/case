@@ -1,7 +1,6 @@
 "use client";
 
 import { ProductCard } from "@/components/ui/ProductCard";
-import { ProductDTO } from "@/lib/types";
 import React from "react";
 import style from "./list.module.scss";
 import { useContexData } from "@/lib/hook/useContex";

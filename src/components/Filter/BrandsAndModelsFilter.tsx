@@ -31,19 +31,21 @@ const BrandsAndModelsFilter: React.FC<BrandsAndModelsFilterProps> = ({
           placeholder="search"
         />
       </div>
-      {(filterData && filterData.length > 0 ? filterData : []).map(
-        (item, index) => (
-          <div key={index + "cb"} className={style.checkbox}>
-            <Input
-              type="radio"
-              name={name}
-              checked={selectedItems.includes(item)}
-              onChange={() => onItemChange(item)}
-            />
-            <label>{item}</label>
-          </div>
-        )
-      )}
+      <div className={style.filterItemSelect}>
+        {(filterData && filterData.length > 0 ? filterData : []).map(
+          (item, index) => (
+            <div key={index + "cb"} className={style.checkbox}>
+              <Input
+                type="radio"
+                name={name}
+                checked={selectedItems.includes(item)}
+                onChange={() => onItemChange(item)}
+              />
+              <label>{item}</label>
+            </div>
+          )
+        )}
+      </div>
     </div>
   </div>
 );

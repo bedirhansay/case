@@ -1,5 +1,15 @@
 .filterWrapper {
-  @apply bg-transparent bg-white  h-fit;
+  @apply bg-transparent bg-white overflow-hidden  h-fit;
+
+  &[data-open="true"] {
+    position: fixed;
+    display: block;
+    z-index: 999;
+    height: 100vh;
+    inset: 0;
+    width: 100vw;
+    background-color: white;
+  }
 }
 
 .filterTitle {
@@ -16,15 +26,19 @@
   &[data-open="true"] {
     position: absolute;
     display: block;
-    z-index: 100;
+    z-index: 999;
     height: 100vh;
     width: 100vw;
     background-color: white;
   }
+
+  .clearButton {
+    @apply px-2 max-w-24 text-gray-900;
+  }
 }
 
 .filterItemWrapper {
-  @apply mb-8 max-h-56 overflow-y-scroll;
+  @apply mb-4 md:mb-8 max-h-44 md:max-h-64 overflow-hidden;
 
   span {
     @apply block text-base mb-2 pl-2;
@@ -37,6 +51,10 @@
       @apply flex gap-2;
     }
   }
+}
+
+.filterItemSelect {
+  @apply text-base max-h-44 md:my-4 overflow-y-scroll;
 }
 
 .brandsInput {

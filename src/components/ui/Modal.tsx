@@ -15,8 +15,8 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, children, onClose }) => {
   }
 
   return (
-    <div className="absolute  h-96  md:h-1/3 inset-0 left-1/2 top-[50%] -translate-x-1/2 -translate-y-1/2 overflow-hidden backdrop-blur-sm z-30 border rounded shadow-lg">
-      <div className="absolute top-2 left-2 right-2 p-2  sm:right-20 sm:left-20 sm:top-20  bg-white rounded-lg ">
+    <div className="absolute max-w-7xl mx-auto inset-0  h-full   overflow-hidden backdrop-blur-sm z-30 border rounded shadow-lg">
+      <div className="absolute top-20  bottom-20 left-2 right-2 p-2  sm:inset-20 md:inset-52 bg-white rounded-lg ">
         <Button className="" variant="secondary" onClick={() => onClose(!open)}>
           &times;
         </Button>

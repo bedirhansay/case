@@ -2,8 +2,10 @@
 
 import React, { useEffect, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { MdFilterList } from "react-icons/md";
+import { IoIosClose } from "react-icons/io";
+import { MdBlindsClosed, MdFilterList } from "react-icons/md";
 import { Button } from "../ui/Button";
+
 import style from "./filter.module.scss";
 import { useSize } from "@/lib/hook/useSize";
 import SortByRadio from "./SortByRadio";
@@ -131,7 +133,7 @@ export const Filter = () => {
   };
 
   return (
-    <div className={style.filterWrapper}>
+    <div data-open={open} className={style.filterWrapper}>
       <div className={style.filterTitle}>
         {width > 768 ? (
           <Button>
@@ -141,7 +143,7 @@ export const Filter = () => {
         ) : (
           <Button onClick={() => setOpen(!open)}>
             <span>Filters</span>
-            <MdFilterList size={24} />
+            {open ? <IoIosClose size={24} /> : <MdFilterList size={24} />}
           </Button>
         )}
       </div>
@@ -174,7 +176,7 @@ export const Filter = () => {
         />
         <Button
           onClick={() => clearFilters()}
-          className="text-gray-900"
+          className={style.clearButton}
           variant="outline"
         >
           Clear Filters
