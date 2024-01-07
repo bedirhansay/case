@@ -31,7 +31,7 @@ export default function RootLayout({
           <div className="p-2 min-h-screen flex-grow">{children}</div>
           <Footer />
 
-          <Toaster position="top-left" />
+          <Toaster position="bottom-center" />
         </ContextProvider>
       </body>
     </html>
