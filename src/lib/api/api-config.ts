@@ -2,12 +2,13 @@ const { NEXT_PUBLIC_API_URL, NODE_ENV } = process.env;
 
 const getApiUrl = (): string => {
   if (NODE_ENV === "development") {
-    return NEXT_PUBLIC_API_URL || "http://localhost:3000/api";
+    return "http://localhost:3000/api";
   } else {
-    return NEXT_PUBLIC_API_URL || "https://production-api-url.com";
+    return NEXT_PUBLIC_API_URL || "";
   }
 };
 
+console.log(NEXT_PUBLIC_API_URL);
 export const DEFAULT_API_CONFIG: ApiConfig = {
   url: getApiUrl(),
   timeout: 10000,
