@@ -7,7 +7,6 @@ import { Pagination } from "@/components/Pagination/Pagination";
 import style from "./home.module.scss";
 import { ProductListPage } from "@/components/ProductList/ProductList";
 import { useContexData } from "@/lib/hook/useContex";
-import { usePathname } from "next/navigation";
 
 export const HomePage = ({
   products,
@@ -19,7 +18,7 @@ export const HomePage = ({
   const { setProduct, setFilterCategories } = useContexData();
 
   useEffect(() => {
-    setProduct(products.data);
+    setProduct((products.data && products.data) || "");
     setFilterCategories(categories);
   }, [products?.data, categories]);
 
@@ -27,7 +26,7 @@ export const HomePage = ({
     <div className={style.homeWrapper}>
       <Filter />
       <div className="w-full">
-        <ProductListPage products={products.data} />
+        <ProductListPage />
         <Pagination
           totalPage={products.totalPages}
           currentPage={products.currentPage}

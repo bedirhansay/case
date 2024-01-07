@@ -8,7 +8,6 @@ const getApiUrl = (): string => {
   }
 };
 
-console.log(NEXT_PUBLIC_API_URL);
 export const DEFAULT_API_CONFIG: ApiConfig = {
   url: getApiUrl(),
   timeout: 10000,

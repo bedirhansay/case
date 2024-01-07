@@ -3,16 +3,18 @@ import React from "react";
 export default function queryParamsHandler(searchParams: any) {
   const { page, sortBy, model, brand, search, orderBy } = searchParams;
   const queryParams = new URLSearchParams();
+
+  console.log(sortBy);
+
   if (search) {
     queryParams.append("search", String(search));
-    queryParams.append("orderBy", String(orderBy));
   }
 
   if (page) {
     queryParams.append("page", page.toString());
   }
 
-  if (sortBy) {
+  if (sortBy && sortBy !== null && sortBy !== undefined) {
     queryParams.append("sortBy", sortBy);
   }
 
