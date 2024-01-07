@@ -48,7 +48,10 @@ export const CheckoutPage = () => {
           <div className={style.amount}>
             <p>Total Amount: {totalPrice} ₺</p>
             <Button
-              onClick={() => setOpen(!open)}
+              onClick={() => {
+                window.scroll(0, 0);
+                setOpen(!open);
+              }}
               className="bg-blue-500 text-white px-4 py-2 mt-4 rounded"
             >
               Proceed to Payment
