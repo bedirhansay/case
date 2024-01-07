@@ -8,9 +8,7 @@ import { useContexData } from "@/lib/hook/useContex";
 
 export const ProductListPage = () => {
   const { product } = useContexData();
-  console.log(product);
   const isEmpty = product.length === 0;
-  console.log(isEmpty);
   return (
     <div className={style.listWrapper}>
       {isEmpty ? (

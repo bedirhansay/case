@@ -60,8 +60,9 @@ export const Filter = () => {
 
   const handleBrandsChange = (item: string) => {
     const updatedBrands = toggleSelection(selectedBrands, item);
+
     // setSelectedBrands(updatedBrands);s
-    setSelectedBrands([item]);
+    setSelectedBrands(updatedBrands);
   };
 
   const handleModelChange = (item: string) => {
@@ -76,15 +77,18 @@ export const Filter = () => {
     const itemIndex = list.indexOf(item);
 
     if (itemIndex === -1) {
-      return [...list, item];
+      // return [...list, item];
+      return [item];
     } else {
-      return list.filter((selected, index) => index !== itemIndex);
+      // return list.filter((selected, index) => index !== itemIndex);
+      return [];
     }
   };
 
   useEffect(() => {
     const queryParams = new URLSearchParams();
-    if (selectedSort) {
+
+    if (selectedSort && selectedSort.sortBy !== null) {
       queryParams.set("sortBy", selectedSort.sortBy);
       queryParams.set("orderBy", selectedSort.order);
     }
@@ -120,6 +124,11 @@ export const Filter = () => {
       }));
     }
   }, [searchForBrands, searchForModel]);
+
+  const clearFilters = () => {
+    setSelectedModels([]);
+    setSelectedBrands([]);
+  };
 
   return (
     <div className={style.filterWrapper}>
@@ -163,6 +172,13 @@ export const Filter = () => {
               : filterCategories?.models
           }
         />
+        <Button
+          onClick={() => clearFilters()}
+          className="text-gray-900"
+          variant="outline"
+        >
+          Clear Filters
+        </Button>
       </div>
     </div>
   );
