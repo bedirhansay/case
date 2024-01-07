@@ -70,7 +70,7 @@ export const Navbar = () => {
           <div className={style.cartWrapper}>
             <Button onClick={toggleCart}>
               <FaBagShopping />
-              <strong>{totalPrice} ₺</strong>
+              <strong data-testid="cartid">{totalPrice} ₺</strong>
             </Button>
 
             {isCartOpen && (

@@ -93,6 +93,8 @@ export const ProductCard = (props: any) => {
         <span>{Truncate(props.description, 60)}</span>
 
         <Button
+          data-testid="product-card"
+          role="product-card"
           onClick={(e) => {
             handler({
               id: props.id,

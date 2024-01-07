@@ -9,7 +9,7 @@ export const ProductListPage = () => {
   const { product } = useContexData();
 
   return (
-    <div className={style.listWrapper}>
+    <div data-testid="product-list" className={style.listWrapper}>
       {product?.map((item, index) => (
         <ProductCard key={index + "productcard"} {...item} />
       ))}
