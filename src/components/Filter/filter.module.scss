@@ -82,7 +82,7 @@
 }
 
 .filterItemSelect {
-  @apply text-base max-h-44 md:my-4 overflow-y-scroll;
+  @apply text-base max-h-44 md:my-4 flex flex-col gap-1 md:gap-2 overflow-y-scroll;
 }
 
 .brandsInput {
