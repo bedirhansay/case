@@ -26,6 +26,7 @@ export default async function Home({
   if (!searchParams) {
   }
   const queryParams = queryParamsHandler(searchParams);
+  console.log(queryParams);
 
   const path = `/products?${queryParams.toString()}`;
   const [products, categories] = await Promise.all([

@@ -11,7 +11,7 @@ interface BrandsAndModelsFilterProps {
   onItemChange: (item: string) => void;
   name: string;
 }
-
+const randomKey = Math.floor(Math.random() * 100);
 const BrandsAndModelsFilter: React.FC<BrandsAndModelsFilterProps> = ({
   filterData,
   selectedItems,
@@ -20,7 +20,7 @@ const BrandsAndModelsFilter: React.FC<BrandsAndModelsFilterProps> = ({
   name,
 }) => (
   <div className={style.filterItemWrapper}>
-    <span>{name}</span>
+    <h2>{name}</h2>
     <div className={style.filterItem}>
       <div className={style.brandsInput}>
         <label>
@@ -34,14 +34,16 @@ const BrandsAndModelsFilter: React.FC<BrandsAndModelsFilterProps> = ({
       <div className={style.filterItemSelect}>
         {(filterData && filterData.length > 0 ? filterData : []).map(
           (item, index) => (
-            <div key={index + "cb"} className={style.checkbox}>
+            <div key={index + randomKey} className={style.checkbox}>
               <Input
                 type="radio"
+                id={item + index}
                 name={name}
-                checked={selectedItems.includes(item)}
+                checked={selectedItems && selectedItems.includes(item)}
+                onChange={() => onItemChange(item)}
                 onClick={() => onItemChange(item)}
               />
-              <label>{item}</label>
+              <label htmlFor={item + index}>{item}</label>
             </div>
           )
         )}

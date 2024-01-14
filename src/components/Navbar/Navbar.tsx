@@ -75,7 +75,7 @@ export const Navbar = () => {
 
             {isCartOpen && (
               <div className={style.cart}>
-                <strong>Cart details</strong>
+                <h2>Cart details</h2>
                 <hr />
                 {cart.map((item) => (
                   <div key={item.id} className={style.itemListWrapper}>

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-
 import "./globals.css";
 import clsx from "clsx";
 import { Navbar } from "@/components/Navbar/Navbar";
@@ -8,6 +7,7 @@ import { Urbanist } from "next/font/google";
 import { ContextProvider } from "@/lib/context/ContextProvider";
 import { Toaster } from "react-hot-toast";
 import { CheckoutPop } from "@/components/ui/CheckoutPop";
+import NextTopLoader from "nextjs-toploader";
 
 const urbanist = Urbanist({
   subsets: ["latin"],
@@ -28,6 +28,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${urbanist.className} bg-[#F3F4F6] widthContainer`}>
         <ContextProvider>
+          <NextTopLoader  />
           <Navbar />
           <div className="children">{children}</div>
           <Footer />

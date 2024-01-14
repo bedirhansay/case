@@ -8,7 +8,6 @@ import { useContexData } from "@/lib/hook/useContex";
 
 export const SuccesBox = () => {
   const [loading, setLoading] = useState(true);
-  const router = useRouter();
 
   const { deleteAllCart } = useContexData();
 
@@ -19,13 +18,13 @@ export const SuccesBox = () => {
 
     const redirectTimeout = setTimeout(() => {
       deleteAllCart();
-      router.push("/");
+      window.location.href = "/";
     }, 3000);
     return () => {
       clearTimeout(timeout);
       clearTimeout(redirectTimeout);
     };
-  }, [router]);
+  }, []);
 
   return (
     <div className="flex my-10 gap-4 flex-col items-center">

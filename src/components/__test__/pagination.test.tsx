@@ -1,6 +1,5 @@
 import { Pagination } from "@/components/Pagination/Pagination";
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 
 describe("Pagination component", () => {
@@ -24,6 +23,7 @@ describe("Pagination component", () => {
     }
 
     const lastPageButton = screen.getByText(totalPage.toString());
+    expect(lastPageButton).toBeInTheDocument();
+    expect(firstPageButton[0]).toBeInTheDocument();
   });
 });
-

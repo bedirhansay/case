@@ -13,11 +13,13 @@ const SortByRadio: React.FC<SortByRadioProps> = ({
   onSortChange,
 }) => (
   <div className={style.filterItemWrapper}>
-    <span>Sort By</span>
+    <h2>Sort By</h2>
+
     <div className={style.filterItem}>
-      {sortBy.map((item) => (
-        <div key={item.label} className={style.filterInput}>
+      {sortBy.map((item, i) => (
+        <div key={item.label + i} className={style.filterInput}>
           <Input
+            id={item.label}
             type="radio"
             name="sortby"
             checked={

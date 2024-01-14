@@ -28,8 +28,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "jest.config.js",
+    "jest.config.ts",
     "__tests__/app/Home.test.jsx"
-, "__tests__/FormatDate.jsx", "__tests__/ChekcoutPage.jsx", "__tests__/app/RootLayout.tsx", "__tests__/pagination.tsx"  ],
+, "__tests__/FormatDate.jsx", "src/container/__test__/ChekcoutPage.test.tsx", "__tests__/app/RootLayout.tsx", "src/components/__test__/pagination.test.tsx"  ],
   "exclude": ["node_modules"]
 }

@@ -26,6 +26,8 @@ export const HomePage = ({
 
   const isEmpty = product.length === 0;
 
+
+
   return (
     <div className={style.homeWrapper}>
       <Filter />

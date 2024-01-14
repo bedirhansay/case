@@ -3,16 +3,18 @@
 import React, { useEffect, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { IoIosClose } from "react-icons/io";
-import { MdBlindsClosed, MdFilterList } from "react-icons/md";
+import { MdFilterList } from "react-icons/md";
 import { Button } from "../ui/Button";
-
 import style from "./filter.module.scss";
 import { useSize } from "@/lib/hook/useSize";
 import SortByRadio from "./SortByRadio";
 import BrandsAndModelsFilter from "./BrandsAndModelsFilter";
 import { useContexData } from "@/lib/hook/useContex";
+import { di } from "react-magnetic-di";
 
 export const Filter = () => {
+  di(SortByRadio, BrandsAndModelsFilter);
+
   const { filterCategories, setFilterCategories } = useContexData();
   const [width] = useSize();
   const router = useRouter();
@@ -27,15 +29,15 @@ export const Filter = () => {
     models: [],
   });
   const [selectedSort, setSelectedSort] = useState<any>({
-    sortBy: searchParams.get("sortBy"),
-    order: searchParams.get("orderBy"),
+    sortBy: searchParams?.get("sortBy"),
+    order: searchParams?.get("orderBy"),
   });
 
   const [selectedBrands, setSelectedBrands] = useState<string[]>(
-    searchParams.getAll("brand")
+    searchParams?.getAll("brand")
   );
   const [selectedModels, setSelectedModels] = useState<string[]>(
-    searchParams.getAll("model")
+    searchParams?.getAll("model")
   );
   const handleSortChange = (label: string, order: string) => {
     let newSort: any = { sortBy: null, order: null };
@@ -94,11 +96,15 @@ export const Filter = () => {
       queryParams.set("sortBy", selectedSort.sortBy);
       queryParams.set("orderBy", selectedSort.order);
     }
-    for (const query of selectedModels) {
-      queryParams.append("model", query);
+    if (selectedModels) {
+      for (const query of selectedModels) {
+        queryParams.append("model", query);
+      }
     }
-    for (const query of selectedBrands) {
-      queryParams.append("brand", query);
+    if (selectedBrands) {
+      for (const query of selectedBrands) {
+        queryParams.append("brand", query);
+      }
     }
 
     router.push(`${pathname}?${queryParams.toString()}`);
@@ -107,7 +113,7 @@ export const Filter = () => {
   useEffect(() => {
     if (searchForBrands) {
       const filteredBrands = filterCategories?.brands?.filter((brand) =>
-        brand.toLowerCase().includes(searchForBrands.toLowerCase())
+        brand.toLowerCase().includes(searchForBrands?.toLowerCase())
       );
 
       setFiltered((prev: any) => ({
@@ -117,7 +123,7 @@ export const Filter = () => {
     }
     if (searchForModel) {
       const filteredModels = filterCategories?.models?.filter((model) =>
-        model.toLowerCase().includes(searchForModel.toLowerCase())
+        model.toLowerCase().includes(searchForModel?.toLowerCase())
       );
 
       setFiltered((prev: any) => ({
@@ -127,27 +133,26 @@ export const Filter = () => {
     }
   }, [searchForBrands, searchForModel]);
 
-  const clearFilters = () => {
-    setSelectedModels([]);
-    setSelectedBrands([]);
-  };
-
   return (
     <div data-open={open} className={style.filterWrapper}>
       <div className={style.filterTitle}>
         {width > 768 ? (
-          <Button>
-            <span>Filters</span>
+          <Button data-testid="larger">
+            <h2>Filters</h2>
             <MdFilterList size={24} />
           </Button>
         ) : (
-          <Button onClick={() => setOpen(!open)}>
-            <span>Filters</span>
+          <Button data-testid="smaller" onClick={() => setOpen(!open)}>
+            <h2>Filters</h2>
             {open ? <IoIosClose size={24} /> : <MdFilterList size={24} />}
           </Button>
         )}
       </div>
-      <div data-open={open} className={style.filterArea}>
+      <div
+        data-testid="filter-area"
+        data-open={open}
+        className={style.filterArea}
+      >
         <SortByRadio
           selectedSort={selectedSort}
           onSortChange={handleSortChange}

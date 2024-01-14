@@ -72,6 +72,7 @@ export const ProductCard = (props: any) => {
     <div className="border shadow-lg rounded-md overflow-hidden flex flex-col justify-between gap-4 bg-white">
       <Link href={`/product/${props.id}`} className="h-48 relative">
         <Button
+          data-testid="fav-button"
           onClick={(e) => favHandler(props.id, e)}
           className="absolute z-10 right-0"
         >
@@ -81,7 +82,7 @@ export const ProductCard = (props: any) => {
             <CiStar color="yellow" size={30} />
           )}
         </Button>
-        <Image alt={props.name} fill objectFit="" src={props.image}></Image>
+        <Image alt={props.name} fill src={props.image}></Image>
       </Link>
 
       <div className="flex flex-col px-4 pb-2 gap-4 text-center">

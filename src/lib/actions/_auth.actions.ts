@@ -1,6 +1,6 @@
 "use server";
 
-import { LoginDTO, RegisterDTO } from "@/lib/types";
+import { LoginDTO } from "@/lib/types";
 import { apiWorker } from "../api/api";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
@@ -31,7 +31,6 @@ const handleRedirect = (url: string) => {
   redirect(url);
 };
 
-// 2 - login
 export const login = async (payload: LoginDTO) => {
   try {
     const response = await apiWorker.instance.post(`auth/login`, payload);
