@@ -6,7 +6,7 @@ export const Footer = () => {
       <div className="container mx-auto">
         <div className="flex justify-between items-center">
           <div>
-            <p className="text-lg font-semibold">Etheration</p>
+            <p className="text-lg font-semibold">Case</p>
             <p className="text-gray-400">
               Providing quality products since 20XX
             </p>
